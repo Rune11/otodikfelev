@@ -1,0 +1,21 @@
+select * from user_objects;
+select * from dba_objects;
+select * from all_objects; --all object a jelszóvédett dolgokat nem mutatja
+select * from dba_objects where owner='TEW6CB'; --ugyanaz mint az user_object
+create table x (a number);
+select owner from dba_objects where object_name='DUAL' and object_type='TABLE';
+select owner from dba_objects where object_name='DBA_TABLES' and object_type='TABLE';
+select owner from dba_objects where object_name='DBA_TABLES' and object_type='SYNONYM';
+
+select distinct object_type from dba_objects where owner='ORAUSER';
+
+select count (distinct object_type) from dba_objects;
+
+select owner, count(distinct object_type) from dba_objects group by owner;
+
+select owner from dba_objects where object_type='TRIGGER' intersect
+select owner from dba_objects where object_type='VIEW';
+
+select owner from dba_objects where object_type='TABLE' group by owner having count(*) > 40;
+
+select 1+1 from x;
