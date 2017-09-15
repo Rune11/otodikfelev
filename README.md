@@ -1,4 +1,4 @@
-# otodikfelev
+# Ötödik félév
 
 ## Órarend
 
